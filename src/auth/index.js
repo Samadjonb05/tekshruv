@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { authUser, deleteUser, register, verifyCode } from "./controller.js";
 import { forgot_password, forgotCode, regstrater_forgot } from "./forgot.js";
-import { login } from "./login.js";
+import { login, updateLogin } from "./login.js";
 import {
   validate,
   userValidate,
@@ -34,5 +34,6 @@ authRoute.post(
 );
 
 authRoute.post("/login", login);
+authRoute.patch("/update", updateLogin);
 
 export default authRoute;
