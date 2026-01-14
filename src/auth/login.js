@@ -11,7 +11,7 @@ export async function login(req, res, next) {
       return res.send({
         message: "bu login mavjud emas",
       });
-    console.log(inspect_login);
+    // console.log(inspect_login);
     const isMatch = await bcrypt.compare(password, inspect_login.password);
 
     if (!isMatch) {
@@ -25,7 +25,14 @@ export async function login(req, res, next) {
       process.env.JWT_SECRET,
       { expiresIn: "30d" }
     );
-    res.send({ message: "login muvaffaqiyatli", inspect_login, token_is });
+    res.send({ message: "login muvaffaqiyatli", token_is });
+  } catch (err) {
+    next(err);
+  }
+}
+
+export async function updateLogin(req, res, next) {
+  try {
   } catch (err) {
     next(err);
   }

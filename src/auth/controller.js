@@ -105,3 +105,13 @@ export async function register(req, res, next) {
     next(err);
   }
 }
+
+export async function deleteUser(req, res, next) {
+  try {
+    const userID = req.user;
+    const userDelet = await user.findOneAndDelete({ userID });
+    res.send({ message: "user delet", userDelet });
+  } catch (err) {
+    next(err);
+  }
+}
