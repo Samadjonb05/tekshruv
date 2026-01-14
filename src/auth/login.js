@@ -48,7 +48,7 @@ export async function updateLogin(req, res, next) {
       err.status = 429;
       throw err;
     }
-    // console.log(inspect_token);
+
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const userUpdate = await user.findOneAndUpdate(
